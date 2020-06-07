@@ -11,7 +11,7 @@
     </header>
 
     <% for(let i = 0; i < notes.length; i++) { %>
-      <div class="card">
+      <div class="card" id="card-<%= notes[i].id %>">
         <div class="card-header">
           Note
           <form action="/delete-note/<%= notes[i].id %>" method="post" class="delete-btn">
