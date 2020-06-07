@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="https://kit.fontawesome.com/6ed05bc017.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+        <h1>Notes App</h1>
+        <p>This is a place where I can store my class notes.</p>
+    </header>
+
+    <% for(let i = 0; i < notes.length; i++) { %>
+      <div class="card">
+        <div class="card-header">
+          Note <%= i + 1 %>
+          <form action="/delete-note/<%= i %>" method="post" class="delete-btn">
+            <button class="icon-btn"><i class="fas fa-trash-alt"></i></button>
+          </form>
+        </div>
+        <div class="card-body">
+          <form action="/notes/<%= i %>" method="post">
+            <textarea class="form-control" name="note" id="note-<%= i %>"><%= notes[i] %></textarea>
+            <button class="btn btn-secondary" type="submit">Update</button>
+          </form>
+        </div>
+      </div>
+    <% } %>
+
+    <div id="add-section">
+      <form action="/notes" method="post">
+        <textarea id="new-note" class="form-control" name="note" placeholder="Type your new note here"></textarea>
+        <button class="btn btn-primary" type="submit">Create</button>
+      </form>
+    </div>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
