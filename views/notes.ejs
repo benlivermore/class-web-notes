@@ -14,13 +14,13 @@
       <div class="card">
         <div class="card-header">
           Note <%= i + 1 %>
-          <form action="/delete-note/<%= i %>" method="post" class="delete-btn">
+          <form action="/delete-note/<%= notes[i].id %>" method="post" class="delete-btn">
             <button class="icon-btn"><i class="fas fa-trash-alt"></i></button>
           </form>
         </div>
         <div class="card-body">
-          <form action="/notes/<%= i %>" method="post">
-            <textarea class="form-control" name="note" id="note-<%= i %>"><%= notes[i] %></textarea>
+          <form action="/notes/<%= notes[i].id %>" method="post">
+            <textarea class="form-control" name="note" id="note-<%= notes[i].id %>"><%= notes[i].text %></textarea>
             <button class="btn btn-secondary" type="submit">Update</button>
           </form>
         </div>
