@@ -13,7 +13,7 @@
     <% for(let i = 0; i < notes.length; i++) { %>
       <div class="card">
         <div class="card-header">
-          Note <%= i + 1 %>
+          Note
           <form action="/delete-note/<%= notes[i].id %>" method="post" class="delete-btn">
             <button class="icon-btn"><i class="fas fa-trash-alt"></i></button>
           </form>
