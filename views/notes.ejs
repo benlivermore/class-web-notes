@@ -14,15 +14,11 @@
       <div class="card" id="card-<%= notes[i].id %>">
         <div class="card-header">
           Note
-          <form action="/delete-note/<%= notes[i].id %>" method="post" class="delete-btn">
-            <button class="icon-btn"><i class="fas fa-trash-alt"></i></button>
-          </form>
+          <button class="icon-btn delete-btn" onclick="deleteNote('<%= notes[i].id %>')"><i class="fas fa-trash-alt"></i></button>
         </div>
         <div class="card-body">
-          <form action="/notes/<%= notes[i].id %>" method="post">
-            <textarea class="form-control" name="note" id="note-<%= notes[i].id %>"><%= notes[i].text %></textarea>
-            <button class="btn btn-secondary" type="submit">Update</button>
-          </form>
+          <textarea class="form-control" name="note" id="note-<%= notes[i].id %>"><%= notes[i].text %></textarea>
+          <button class="btn btn-secondary" onclick="updateNoteOnServer('<%= notes[i].id %>');">Update</button>
         </div>
       </div>
     <% } %>

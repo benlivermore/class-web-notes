@@ -31,16 +31,16 @@ app.get('/', (req, res) => {
   res.render('notes', { notes: notes });
 });
 
-app.post('/delete-note/:noteId', (req, res) => {
+app.delete('/notes/:noteId', (req, res) => {
   const noteToDeleteIndex = notes.findIndex(note => note.id === req.params.noteId)
   notes.splice(noteToDeleteIndex, 1);
-  res.redirect('/');
+  res.send('success');
 });
 
-app.post('/notes/:noteId', (req, res) => {
+app.put('/notes/:noteId', (req, res) => {
   const noteToUpdate = notes.find(note => note.id === req.params.noteId)
   noteToUpdate.text = req.body.note;
-  res.redirect('/');
+  res.send('success');
 });
 
 app.post('/notes', (req, res) => {
